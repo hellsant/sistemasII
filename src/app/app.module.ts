@@ -3,11 +3,17 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { EstudianteComponent } from './estudiante/estudiante.component';
+import { ImportarComponent } from './importar/importar.component';
+import { CursoComponent } from './curso/curso.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EstudianteComponent,
+    ImportarComponent,
+    CursoComponent
   ],
   imports: [
     BrowserModule
