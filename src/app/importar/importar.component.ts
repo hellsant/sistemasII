@@ -12,5 +12,10 @@ export class ImportarComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  addActivity() {
+    let fileImput: any = document.getElementById('subirArchivo');
+    let archivo = fileImput.files[0];
 
+  }
 }
