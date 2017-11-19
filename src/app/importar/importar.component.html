@@ -1,31 +1,23 @@
 <form action="">
   <div class="form-group">
-
     <label class="custom-file">
-      <input type="file" id="subirArchivo" class="custom-file-input">
+      <input type="file" #fileImportInput name="File Upload" id="txtFileUpload" class="custom-file-input" (change)="fileChangeListener($event)" accept=".csv" value={{selectedImageFile}}/>
       <span class="custom-file-control"></span>
     </label>
   </div>
   <div class="form-group">
-    <table class="table">
-      <thead class="thead-default">
-        <tr>
-          <th>#</th>
-          <th>Nombre</th>
-          <th>Apellidos</th>
-          <th>Curso</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-      </tbody>
+    <table class="table thead-default">
+          <tbody class="table thead-default">
+            <ng-container *ngFor="let csvRec of csvRecords;let i=index" >
+              <tr class="table thead-default">
+                <ng-container *ngFor="let data of csvRec;let j=index">
+                  <td>{{data}}</td>
+                </ng-container>
+              </tr>
+            </ng-container>
+          </tbody>
     </table>
-    <button type="aceptar" class="btn btn-primary">aceptar</button>
-    <button type="cancel" class="btn btn-primary">cancelar</button>
   </div>
+  <button type="aceptar" class="btn btn-primary" (click)="guardar()">aceptar</button>
+  <button type="cancel" class="btn btn-primary" (click)="fileReset()">cancelar</button>
 </form>
