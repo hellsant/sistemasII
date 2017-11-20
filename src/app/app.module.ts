@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { AlumnoComponent } from './alumno/alumno.component';
 import { ProfesorComponent } from './profesor/profesor.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { APP_ROUTING } from './app.routes';
+import { ImportarEstudianteComponent } from './importar/importar-estudiante.component';
 
 
 @NgModule({
@@ -18,11 +20,13 @@ import { APP_ROUTING } from './app.routes';
     CursoComponent,
     AlumnoComponent,
     ProfesorComponent,
-    NavbarComponent
+    NavbarComponent,
+    ImportarEstudianteComponent
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

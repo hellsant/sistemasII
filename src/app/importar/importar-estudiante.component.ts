@@ -1,25 +1,33 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { AlumnoComponent } from '../alumno/alumno.component';
 import { FileUtil } from './file.util';
 import { Constants } from './test.constants';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import { ImportarServiceService } from './importar-service.service';
-import { AlumnoComponent } from '../alumno/alumno.component';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-importar',
-  templateUrl: './importar.component.html',
+  selector: 'app-importar-estudiante',
+  templateUrl: './importar-estudiante.component.html',
+  styleUrls: ['./importar-estudiante.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-
-export class ImportarComponent implements OnInit {
-
+export class ImportarEstudianteComponent implements OnInit {
+  form: FormGroup;
   private _fileUtil: FileUtil;
   private csvRecords;
   lista: AlumnoComponent[];
+
   constructor(
-    private servicio: ImportarServiceService) {
+    private route: ActivatedRoute,
+    private router: Router,
+    private service: ImportarServiceService,
+    private fb: FormBuilder,
+    private servicio: ImportarServiceService
+  ) {
     this._fileUtil = new FileUtil();
     this.csvRecords = [];
+    this.createControles();
   }
 
   ngOnInit() {
@@ -28,6 +36,25 @@ export class ImportarComponent implements OnInit {
       er => console.log(er),
       () => console.log(this.lista)
     );
+    const id = this.route.snapshot.params['id'];
+    // tslint:disable-next-line:curly
+    if (id) return;
+    console.log(id);
+  }
+  createControles() {
+    this.form = this.fb.group({
+      id: '',
+      nombre: '',
+      apellido: ''
+    });
+  }
+
+  guardar() {
+    this.service.addAlumno(this.form.value)
+      .subscribe(
+      rt => console.log(rt),
+      er => console.log(er),
+      () => console.log('terminado'));
   }
 
   // tslint:disable-next-line:member-ordering
