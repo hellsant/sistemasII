@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ImportarComponent {
 
-  private _fileUtil: FileUtil
+  private _fileUtil: FileUtil;
   private csvRecords;
   constructor() {
     this._fileUtil = new FileUtil();
@@ -19,50 +19,8 @@ export class ImportarComponent {
 
   @ViewChild('fileImportInput')
   fileImportInput: any;
-
-
-  /**
-   * 
-   fileChangeListener() {
-
-   var text = [];
-   var fileImput: any = document.getElementById('subirArchivo');
-   var archivo = fileImput.files[0];
-
-   if (Constants.validateHeaderAndRecordLengthFlag) {
-     if (!this._fileUtil.isCSVFile(archivo)) {
-       alert("insertar un archivo .csv valido.");
-       this.fileReset();
-     }
-   }
-
-   var reader = new FileReader();
-   reader.readAsText(archivo);
-
-   reader.onload = (data) => {
-     let csvData = reader.result;
-     let csvRecordsArray = csvData.split(/\r\n|\n/);
-
-     var headerLength = -1;
-     if (Constants.isHeaderPresentFlag) {
-       let headersRow = this._fileUtil.getHeaderArray(csvRecordsArray, Constants.tokenDelimeter);
-       headerLength = headersRow.length;
-     }
-
-     this.csvRecords = this._fileUtil.getDataRecordsArrayFromCSVFile(csvRecordsArray,
-       headerLength, Constants.validateHeaderAndRecordLengthFlag, Constants.tokenDelimeter);
-
-     if (this.csvRecords == null) {
-       this.fileReset();
-     }
-   }
-
-   reader.onerror = function () {
-     alert('Unable to read ' + archivo);
-   };
- };
-   */
-  fileChangeListener($event): void {
+   
+ fileChangeListener($event): void {
 
     var text = [];
     var target = $event.target || $event.srcElement;
@@ -70,7 +28,7 @@ export class ImportarComponent {
 
     if (Constants.validateHeaderAndRecordLengthFlag) {
       if (!this._fileUtil.isCSVFile(files[0])) {
-        alert("Please import valid .csv file.");
+        alert("insertar un archivo .csv valido.");
         this.fileReset();
       }
     }
@@ -99,9 +57,10 @@ export class ImportarComponent {
     }
 
     reader.onerror = function () {
-      alert('Unable to read ' + input.files[0]);
+      alert('no se puede leer el archivo ' + input.files[0]);
     };
   };
+  
   fileReset() {
     this.fileImportInput.nativeElement.value = "";
     this.csvRecords = [];
