@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { Http,HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -9,9 +10,8 @@ import { CursoComponent } from './curso/curso.component';
 import { AlumnoComponent } from './alumno/alumno.component';
 import { ProfesorComponent } from './profesor/profesor.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { APP_ROUTING } from './app.routes';
+import { AppRoutingModule } from './app.routes';
 import { ImportarEstudianteComponent } from './importar/importar-estudiante.component';
-
 
 @NgModule({
   declarations: [
@@ -25,8 +25,10 @@ import { ImportarEstudianteComponent } from './importar/importar-estudiante.comp
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING,
-    ReactiveFormsModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

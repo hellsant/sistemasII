@@ -1,3 +1,5 @@
 <nav>
-  <button class="btn btn-primary" routerLink="app-importar-estudiante"> importar estudiantes</button>
+  <button class="btn btn-primary" [routerLink]="['/importarEstudiante']"> importar estudiantes</button>
+  <button class="btn btn-primary" routerLink="['/importarEstudiante']"> agregar estudiantes</button>
 </nav>
+<router-outlet></router-outlet>

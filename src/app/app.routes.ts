@@ -7,18 +7,25 @@ import { ProfesorComponent } from './profesor/profesor.component';
 import { CursoComponent } from './curso/curso.component';
 import { ImportarEstudianteComponent } from './importar/importar-estudiante.component';
 
-const ROUTES: Routes = [
+const appRouters: Routes = [
     { path: 'alumno', component: AlumnoComponent },
     { path: 'curso', component: CursoComponent },
     { path: 'profesor', component: ProfesorComponent },
     {
         path: 'importar', component: ImportarComponent, children: [
-            { path: '', redirectTo: 'importar', pathMatch: 'full' },
-            { path: 'importarEstudiante', redirectTo: 'importar', component: ImportarEstudianteComponent },
-            { path: 'importarEstudiante/:id', redirectTo: 'importar', component: ImportarEstudianteComponent },
+            { path: '', redirectTo: 'importarEstudiante', pathMatch: 'full' },
+            { path: 'importarEstudiante', component: ImportarEstudianteComponent },
+            { path: 'importarEstudiante/:id', component: ImportarEstudianteComponent },
         ]
     },
     { path: '**', pathMatch: 'full', redirectTo: 'alumno' },
 ];
-
-export const APP_ROUTING = RouterModule.forRoot(ROUTES);
+@NgModule({
+    imports:[
+        RouterModule.forRoot(appRouters)
+    ],
+    exports:[
+        RouterModule
+    ]
+})
+export class AppRoutingModule{};

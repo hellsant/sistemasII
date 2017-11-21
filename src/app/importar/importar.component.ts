@@ -4,6 +4,7 @@ import { Constants } from './test.constants';
 import { Router } from '@angular/router';
 import { ImportarServiceService } from './importar-service.service';
 import { AlumnoComponent } from '../alumno/alumno.component';
+import { Alumno } from '../alumno/alumno';
 
 @Component({
   selector: 'app-importar',
@@ -15,22 +16,14 @@ export class ImportarComponent implements OnInit {
 
   private _fileUtil: FileUtil;
   private csvRecords;
-  lista: AlumnoComponent[];
-  constructor(
-    private servicio: ImportarServiceService) {
+  constructor( ) {
     this._fileUtil = new FileUtil();
     this.csvRecords = [];
   }
 
   ngOnInit() {
-    this.servicio.getAlumno().subscribe(
-      rs => this.lista = rs,
-      er => console.log(er),
-      () => console.log(this.lista)
-    );
   }
 
-  // tslint:disable-next-line:member-ordering
   @ViewChild('fileImportInput')
   fileImportInput: any;
 

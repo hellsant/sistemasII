@@ -1,7 +1,15 @@
-<form action="" >
+<div>
+  <h1>se importa el estudiante</h1>
+</div>
+<form>
   <div class="form-group">
     <label class="custom-file">
-      <input type="file" #fileImportInput name="File Upload" id="txtFileUpload" class="custom-file-input" (change)="fileChangeListener($event)" accept=".csv" value={{selectedImageFile}}/>
+      <input type="file" #fileImportInput
+      name="File Upload"
+      id="txtFileUpload"
+      class="custom-file-input"
+      (change)="fileChangeListener($event)"
+      accept=".csv" value={{selectedImageFile}}/>
       <span class="custom-file-control"></span>
     </label>
   </div>
@@ -11,7 +19,7 @@
             <ng-container *ngFor="let csvRec of csvRecords;let i=index" >
               <tr class="table thead-default">
                 <ng-container *ngFor="let data of csvRec;let j=index">
-                  <td>{{data}}</td>
+                  <td fornControlName="data.value">{{data}}</td>
                 </ng-container>
               </tr>
             </ng-container>
@@ -21,3 +29,4 @@
   <button type="aceptar" class="btn btn-primary" (click)="guardar()">aceptar</button>
   <button type="cancel" class="btn btn-primary" (click)="fileReset()">cancelar</button>
 </form>
+<router-outlet></router-outlet>
