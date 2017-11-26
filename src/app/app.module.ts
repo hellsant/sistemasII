@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { Http,HttpModule } from '@angular/http';
-
+import { Http, HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ImportarComponent } from './importar/importar.component';
@@ -33,4 +32,4 @@ import { ImportarEstudianteComponent } from './importar/importar-estudiante.comp
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -8,24 +8,22 @@ import { CursoComponent } from './curso/curso.component';
 import { ImportarEstudianteComponent } from './importar/importar-estudiante.component';
 
 const appRouters: Routes = [
-    { path: 'alumno', component: AlumnoComponent },
-    { path: 'curso', component: CursoComponent },
-    { path: 'profesor', component: ProfesorComponent },
-    {
-        path: 'importar', component: ImportarComponent, children: [
-            { path: '', redirectTo: 'importarEstudiante', pathMatch: 'full' },
-            { path: 'importarEstudiante', component: ImportarEstudianteComponent },
-            { path: 'importarEstudiante/:id', component: ImportarEstudianteComponent },
-        ]
-    },
-    { path: '**', pathMatch: 'full', redirectTo: 'alumno' },
+  { path: 'alumno', component: AlumnoComponent },
+  { path: 'curso', component: CursoComponent },
+  { path: 'profesor', component: ProfesorComponent },
+  {
+    path: 'importar',
+    component: ImportarComponent,
+    children: [
+   //  { path: '', redirectTo: 'importarEstudiante', pathMatch: 'full' },
+   //  { path: 'importarEstudiante', component: ImportarEstudianteComponent },
+    { path: 'importarEstudiante/:id', component: ImportarEstudianteComponent }
+     ]
+  },
+  { path: '**', pathMatch: 'full', redirectTo: 'alumno' }
 ];
 @NgModule({
-    imports:[
-        RouterModule.forRoot(appRouters)
-    ],
-    exports:[
-        RouterModule
-    ]
+  imports: [RouterModule.forRoot(appRouters)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule{};
+export class AppRoutingModule {}

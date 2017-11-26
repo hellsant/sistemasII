@@ -3,7 +3,6 @@ import { FileUtil } from './file.util';
 import { Constants } from './test.constants';
 import { Router } from '@angular/router';
 import { ImportarServiceService } from './importar-service.service';
-import { AlumnoComponent } from '../alumno/alumno.component';
 import { Alumno } from '../alumno/alumno';
 
 @Component({
@@ -24,6 +23,7 @@ export class ImportarComponent implements OnInit {
   ngOnInit() {
   }
 
+  // tslint:disable-next-line:member-ordering
   @ViewChild('fileImportInput')
   fileImportInput: any;
 
