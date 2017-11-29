@@ -1,0 +1,29 @@
+<div>
+  <h1>se importa el estudiante</h1>
+</div>
+<div class="container">
+  <div class="form-group">
+    <label class="custom-file">
+      <input type="file" #fileImportInput name="File Upload" id="txtFileUpload" class="custom-file-input" (change)="fileChangeListener($event)"
+        accept=".csv" value={{selectedImageFile}}/>
+      <span class="custom-file-control"></span>
+    </label>
+  </div>
+  <form [formGroup]="form">
+    <table class="table" id="IdAlumno">
+      <thead class="thead-inverse">
+       <tr>
+          <th *ngFor="let titulo of cabecera;let k=index" fornControlName="titulo">{{titulo}}</th>
+        </tr>   
+      </thead>
+      <tbody>
+        <tr *ngFor="let recCsv of csvRecords;let i=index">
+          <td *ngFor="let data of recCsv;let j=index" fornControlName="data">{{data}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="aceptar" class="btn btn-primary" (click)="guardar()">aceptar</button>
+    <button type="cancel" class="btn btn-primary" (click)="fileReset()">cancelar</button>
+  </form>
+</div>
+<router-outlet></router-outlet>
