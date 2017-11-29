@@ -10,14 +10,14 @@
     </label>
   </div>
   <form [formGroup]="form">
-    <table class="table">
+    <table class="table" id="IdAlumno">
       <thead class="thead-inverse">
-        <tr>
-          <th *ngFor="let data of cabecera" fornControlName="data">{{data}}</th>
-        </tr>
+       <tr>
+          <th *ngFor="let titulo of cabecera;let k=index" fornControlName="titulo">{{titulo}}</th>
+        </tr>   
       </thead>
       <tbody>
-        <tr *ngFor="let recCsv of cuerpo;let i=index">
+        <tr *ngFor="let recCsv of csvRecords;let i=index">
           <td *ngFor="let data of recCsv;let j=index" fornControlName="data">{{data}}</td>
         </tr>
       </tbody>

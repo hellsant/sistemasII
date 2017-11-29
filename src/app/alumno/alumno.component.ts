@@ -6,7 +6,7 @@ import { AlumnoService } from './alumno-service';
   selector: 'app-alumno',
   templateUrl: './alumno.component.html',
   styleUrls: ['./alumno.component.css'],
-  providers:[AlumnoService],
+  providers: [AlumnoService],
   encapsulation: ViewEncapsulation.None
 })
 export class AlumnoComponent implements OnInit {
@@ -21,7 +21,7 @@ export class AlumnoComponent implements OnInit {
   ) { }
 
   /**
-   * 
+   *
    */
   ngOnInit() {
     this.servicio.getAlumno().subscribe(
@@ -30,5 +30,4 @@ export class AlumnoComponent implements OnInit {
       () => console.log(this.lista)
     );
   }
-  
 }

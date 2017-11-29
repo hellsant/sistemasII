@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FileUtil } from './file.util';
 import { Constants } from './test.constants';
 import { Alumno } from '../alumno/alumno';
@@ -18,7 +18,8 @@ export class ImportarEstudianteComponent implements OnInit {
   private _fileUtil: FileUtil;
   private csvRecords;
   private cabecera;
-  private cuerpo;
+  private enviarJson;
+  // private cuerpo;
 
   /**
    *
@@ -32,7 +33,7 @@ export class ImportarEstudianteComponent implements OnInit {
     this._fileUtil = new FileUtil();
     this.csvRecords = [];
     this.cabecera = [];
-    this.cuerpo = [];
+    // this.cuerpo = [];
     this.createControles();
   }
 
@@ -50,23 +51,21 @@ export class ImportarEstudianteComponent implements OnInit {
    *
    */
   createControles() {
-    const json = JSON.stringify(this.csvRecords);
-   // this.form = this.fb.group({
-     // data: ''
-    //});
-    this.form = this.fb.group(
-      {
-        data: new FormControl()
-      }
-    );
-    console.log(json);
-  }
+      this.form = this.fb.group({
+        id: '',
+        nombre: '',
+        apellido: '',
+        curso_idcurso: ''
+      });
+      console.log(this.form);
+    }
 
-  /**
-   *
-   */
-  guardar() {
-    this.servicio.addAlumno(this.form.value)
+    /**
+     *
+     */
+    guardar() {
+      this.servicio
+      .addAlumno(this.form.value)
       .subscribe(
         rt => console.log(rt),
         er => console.log(er),
@@ -117,12 +116,12 @@ export class ImportarEstudianteComponent implements OnInit {
         Constants.validateHeaderAndRecordLengthFlag,
         Constants.tokenDelimeter
       );
-      this.cuerpo = this.csvRecords;
-      this.cuerpo.shift();
+      this.csvRecords.shift();
+      //this.cuerpo = this.csvRecords;
+      //this.cuerpo.shift();
       if (this.csvRecords == null) {
         this.fileReset();
       }
-
     };
     reader.onerror = function() {
       alert('no se puede leer el archivo ' + input.files[0]);
@@ -136,6 +135,6 @@ export class ImportarEstudianteComponent implements OnInit {
     this.fileImportInput.nativeElement.value = '';
     this.csvRecords = [];
     this.cabecera = [];
-    this.cuerpo = [];
+    // this.cuerpo = [];
   }
 }

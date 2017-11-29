@@ -13,36 +13,23 @@
         <label for="exampleSelect1">
           <h5>Curso</h5>
         </label>
-        <select class="form-control" id="exampleSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-        </select>
+          <select class="form-control" id="exampleSelect1" >
+            <option *ngFor="let item of lista">{{item.nivel}}</option>
+          </select>
       </div>
       <div class="col-1">
       </div>
       <div class="form-inline">
-        <label for="exampleSelect1">
+        <label for="exampleSelect2">
           <h5>Paralelo</h5>
         </label>
         <select class="form-control" id="exampleSelect1">
-          <option>A</option>
-          <option>B</option>
-          <option>C</option>
-          <option>D</option>
-          <option>E</option>
-        </select>
+          <option  *ngFor="let item of lista">{{item.paralelo}}</option>
+         </select>
       </div>
     </div>
     <button type="aceptar" class="btn btn-primary">aceptar</button>
     <button type="cancel" class="btn btn-primary">cancelar</button>
   </form>
-</div>
-
-<div>
-  Curso
 </div>
 <router-outlet></router-outlet>
