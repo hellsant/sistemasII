@@ -1,30 +1,36 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler navbar-toggler-right"
+  type="button" 
+  data-toggle="collapse"
+  data-target="#navbarSupportedContent"
+  aria-controls="navbarSupportedContent"
+  aria-expanded="false"
+  aria-label="Toggle navigation"> 
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#" [routerLink]="['**']">colegio nacional sucre</a>
+  <a class="navbar-brand" href="#"[routerLink]="['**']"> colegio nacional sucre</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" href="#" [routerLink]="['alumno']">alumno <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#" [routerLink]="['/alumno']">alumno </a>
       </li>
       <li class="nav-item"routerLinkActive="active">
-        <a class="nav-link" href="#"[routerLink]="['profesor']"> profesor</a>
+        <a class="nav-link" href="#"[routerLink]="['/profesor']"> profesor</a>
       </li>
       <li class="nav-item"routerLinkActive="active">
-        <a class="nav-link" href="#"[routerLink]="['curso']">curso</a>
+        <a class="nav-link" href="#"[routerLink]="['/curso']">curso</a>
       </li>
       <li class="nav-item"routerLinkActive="active">
-        <a class="nav-link" href="#"[routerLink]="['materia']">materia</a>
+        <a class="nav-link" href="#"[routerLink]="['/materia']">materia</a>
       </li>
       <li class="nav-item"routerLinkActive="active">
-        <a class="nav-link" href="#"[routerLink]="['importar']">importar alumno</a>
+        <a class="nav-link" href="#"[routerLink]="['notas']"> ver Notas</a>
+      </li>
+      <li class="nav-item"routerLinkActive="active">
+        <a class="nav-link" href="#"[routerLink]="['/importar']">importar alumno</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="buscar">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
-    </form>
   </div>
 </nav>
+<router-outlet></router-outlet>
