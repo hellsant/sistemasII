@@ -1,3 +1,26 @@
-<p>
-  profesor works!
-</p>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      lista de profesores
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>nombre</th>
+          <th>apellido</th>
+          <th>asignatura</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of lista">
+          <td> {{ item.id }}</td>
+          <td> {{ item.nombre }}</td>
+          <td> {{ item.apellido }}</td>
+          <td> {{ item.id_materia }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<router-outlet></router-outlet>

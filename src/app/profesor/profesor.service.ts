@@ -1,6 +1,6 @@
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { Alumno } from '../alumno/alumno';
+import { Profesor } from '../profesor/profesor';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
@@ -8,9 +8,10 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
-export class AlumnoService {
+export class ProfesorService {
+
     private headers = new Headers({ 'Content-Type': 'appplication/json' });
-    private url = 'http://localhost:8000/alumno';
+    private url = 'http://localhost:8000/profesor';
 
     /**
      * 
@@ -22,7 +23,7 @@ export class AlumnoService {
     /**
      *
      */
-    getAlumno(): Observable<Alumno[]> {
+    getProfesor(): Observable<Profesor[]> {
         const url = `${this.url}`;
         return this.http.get(url)
             .map(r => r.json())
@@ -46,4 +47,3 @@ export class AlumnoService {
         return Observable.throw(errMsg);
     }
 }
-
