@@ -30,6 +30,11 @@ export class ProfesorService {
             .catch(this.handleError);
     }
 
+    insertProfesor(profesor: Profesor) {
+        const url = `${this.url}`;
+        return this.http.post(url, profesor).subscribe(res => console.log(res.json()));
+    }
+
     /**
      * 
      * @param error 

@@ -6,11 +6,15 @@ import { ImportarComponent } from './importar/importar.component';
 import { ProfesorComponent } from './profesor/profesor.component';
 import { CursoComponent } from './curso/curso.component';
 import { ImportarEstudianteComponent } from './importar/importar-estudiante.component';
+import { RegistroFormComponent} from './alumno/registro-form/registro-form.component';
+import { RegistroProfesorComponent } from './profesor/registro-profesor/registro-profesor.component';
 
 const appRouters: Routes = [
   { path: 'alumno', component: AlumnoComponent },
   { path: 'curso', component: CursoComponent },
   { path: 'profesor', component: ProfesorComponent },
+  { path: 'alumno/registro', component: RegistroFormComponent},
+  { path: 'profesor/registro', component: RegistroProfesorComponent},
   {
     path: 'importar',
     component: ImportarComponent,

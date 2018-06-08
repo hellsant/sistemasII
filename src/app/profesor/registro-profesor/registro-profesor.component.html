@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Registro de profesores</h1>
+  <form (ngSubmit)="onSubmit(registroAlumnoForm)" #registroAlumnoForm="ngForm">
+    <div class="form-group">
+      <label for="name">Nombre*</label>
+       <input matInput type="text" class="form-control" placeholder="Nombre" #nombre maxlength="80" [(ngModel)]="model.nombre" name="nombre" required>
+    </div>
+
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input matInput type="text" class="form-control" placeholder="Apellido" type="apellido"  [(ngModel)]="model.apellido" name="apellido" required>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!registroAlumnoForm.form.valid">Guardar</button>
+
+  </form>
+</div>
+<router-outlet></router-outlet>

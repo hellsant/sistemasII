@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, EventEmitter, Output } from '@angular/core';
 import { Alumno } from './alumno';
 import { AlumnoService } from './alumno-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alumno',
@@ -17,7 +18,8 @@ export class AlumnoComponent implements OnInit {
    *
    */
   constructor(
-    private servicio: AlumnoService
+    private servicio: AlumnoService,
+    private router: Router,
   ) { }
 
   /**
